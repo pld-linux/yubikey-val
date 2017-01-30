@@ -1,0 +1,14 @@
+--- yubikey-val-2.10-orig/Makefile	2011-08-18 07:48:57.000000000 -0500
++++ yubikey-val-2.10/Makefile	2011-11-08 14:26:34.000000000 -0600
+@@ -34,10 +34,7 @@
+ 	install -D ykval-export.php $(sbinprefix)/ykval-export
+ 	install -D ykval-import.php $(sbinprefix)/ykval-import
+ 	install -D ykval-checksum-clients.php $(sbinprefix)/ykval-checksum-clients
+-	install -D ykval-munin-ksmlatency.php $(muninprefix)/ykval_ksmlatency
+-	install -D ykval-munin-vallatency.php $(muninprefix)/ykval_vallatency
+-	install -D ykval-munin-queuelength.php $(muninprefix)/ykval_queuelength
+-	install -D --backup --mode 640 --group $(wwwgroup) ykval-config.php $(etcprefix)/ykval-config.php-template
++	install -D ykval-config.php $(etcprefix)/ykval-config.php-template
+ 	install -D ykval-db.sql $(docprefix)/ykval-db.sql
+ 	install -D $(DOCS) $(docprefix)/
+ 
