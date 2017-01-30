@@ -1,15 +1,23 @@
+%include	/usr/lib/rpm/macros.php
 Summary:	The YubiKey Validation Server
 Name:		yubikey-val
 Version:	2.10
 Release:	0.1
 License:	BSD
 Group:		Applications/System
-URL:		http://code.google.com/p/yubikey-val-server-php/
+# FIXME: no source0
 Source0:	http://yubikey-val-server-php.googlecode.com/files/%{name}-%{version}.tgz
+URL:		http://code.google.com/p/yubikey-val-server-php/
 Patch0:		%{name}-Makefile.patch
+BuildRequires:	rpm-php-pearprov >= 4.4.2-11
+BuildRequires:	rpmbuild(macros) >= 1.654
+Requires:	php(core)
+Requires:	php(curl)
+Requires:	php(mcrypt)
+Requires:	php(pdo)
+Requires:	php-pear
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-Requires:	php(core) Requires: php-mcrypt Requires: php-curl Requires: php-pear Requires: php-pdo
 
 %description
 This is a server that validates Yubikey OTPs. It is written in PHP,
@@ -32,7 +40,7 @@ rm -rf $RPM_BUILD_ROOT
 	docprefix=$RPM_BUILD_ROOT%{_docdir}/ykval \
 	muninprefix=$RPM_BUILD_ROOT%{_datadir}/munin/plugins
 
-rm -rf $RPM_BUILD_ROOT%{_docdir}
+rm -r $RPM_BUILD_ROOT%{_docdir}
 mv $RPM_BUILD_ROOT%{_sysconfdir}/ykval/ykval-config.php-template $RPM_BUILD_ROOT%{_sysconfdir}/ykval/ykval-config.php
 
 %clean
@@ -41,7 +49,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc doc/* ykval-db.sql
+%dir %{_sysconfdir}/ykval
 %config(noreplace) %{_sysconfdir}/ykval/ykval-config.php
-%dir %{_sysconfdir}/ykval/
-%{_datadir}/ykval/
 %attr(755,root,root) %{_sbindir}/*
+%{_datadir}/ykval
