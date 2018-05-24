@@ -1,14 +1,11 @@
---- yubikey-val-2.10-orig/Makefile	2011-08-18 07:48:57.000000000 -0500
-+++ yubikey-val-2.10/Makefile	2011-11-08 14:26:34.000000000 -0600
-@@ -34,10 +34,7 @@
- 	install -D ykval-export.php $(sbinprefix)/ykval-export
- 	install -D ykval-import.php $(sbinprefix)/ykval-import
- 	install -D ykval-checksum-clients.php $(sbinprefix)/ykval-checksum-clients
--	install -D ykval-munin-ksmlatency.php $(muninprefix)/ykval_ksmlatency
--	install -D ykval-munin-vallatency.php $(muninprefix)/ykval_vallatency
--	install -D ykval-munin-queuelength.php $(muninprefix)/ykval_queuelength
--	install -D --backup --mode 640 --group $(wwwgroup) ykval-config.php $(etcprefix)/ykval-config.php-template
-+	install -D ykval-config.php $(etcprefix)/ykval-config.php-template
- 	install -D ykval-db.sql $(docprefix)/ykval-db.sql
- 	install -D $(DOCS) $(docprefix)/
- 
+--- yubikey-val-2.39/Makefile.orig	2018-05-24 21:13:07.019601283 +0200
++++ yubikey-val-2.39/Makefile	2018-05-24 21:15:30.522932978 +0200
+@@ -101,7 +101,7 @@
+ 	install -D ykval-munin-responses.pl $(DESTDIR)$(muninprefix)/ykval_responses
+ 	install -D ykval-munin-ksmresponses.pl $(DESTDIR)$(muninprefix)/ykval_ksmresponses
+ 	install -D ykval-munin-yubikeystats.php $(DESTDIR)$(muninprefix)/ykval_yubikeystats
+-	install -D --backup --mode 640 --group $(wwwgroup) ykval-config.php $(DESTDIR)$(etcprefix)/ykval-config.php
++	install -D --mode 640 ykval-config.php $(DESTDIR)$(etcprefix)/ykval-config.php
+ 	install -D --mode 644 ykval-db.sql $(DESTDIR)$(docprefix)/ykval-db.sql
+ 	install -D --mode 644 ykval-db.oracle.sql $(DESTDIR)$(docprefix)/ykval-db.oracle.sql
+ 	install -D --mode 644 $(DOCS) $(DESTDIR)$(docprefix)/
