@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.php
 Summary:	The YubiKey Validation Server
 Summary(pl.UTF-8):	Serwer sprawdzający hasła YubiKey
 Name:		yubikey-val
