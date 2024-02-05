@@ -1,12 +1,12 @@
 Summary:	The YubiKey Validation Server
 Summary(pl.UTF-8):	Serwer sprawdzający hasła YubiKey
 Name:		yubikey-val
-Version:	2.39
+Version:	2.41
 Release:	1
 License:	BSD
 Group:		Applications/System
 Source0:	https://developers.yubico.com/yubikey-val/Releases/%{name}-%{version}.tgz
-# Source0-md5:	46e6b3f3dd5e32f22c2754f316cfa774
+# Source0-md5:	e0e42fd82db5c70db3d04ec569342045
 Patch0:		%{name}-Makefile.patch
 URL:		https://developers.yubico.com/yubikey-val/
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
